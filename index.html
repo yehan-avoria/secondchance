@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="crimson">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zweite Chance — Kostenloses Video-Training</title>
+  <meta name="description" content="Ein ruhiger, psychologisch fundierter Weg zur Versöhnung. Kostenloses Video-Training — keine Tricks, keine Manipulation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- BOTTOM LAYER: grid + ambient glows -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <!-- MIDDLE LAYER: heartbeat cursor trail -->
+  <canvas id="heartbeat" class="heartbeat-layer" aria-hidden="true"></canvas>
+
+  <!-- TOP LAYER: UI -->
+  <div class="ui-layer">
+
+    <!-- NAV -->
+    <nav class="nav">
+      <a class="brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <span class="brand-badge">Z</span>
+        <span>Zweite<span class="accent"> Chance</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">So funktioniert's</a>
+        <a href="#stories">Erfahrungen</a>
+        <a href="#faq">FAQ</a>
+        <a href="#cta" class="btn-nav" data-scroll-cta>Gratis-Training ansehen</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-grid">
+        <div class="reveal-l hero-text-top">
+          <div class="badge">
+            <span class="ping"><span class="ping-dot"></span><span class="ping-wave"></span></span>
+            Kostenloses Video-Training · jetzt live
+          </div>
+          <h1 class="hero-title">Gewinne zurück, was zählt — <span class="accent italic">auf die richtige Art.</span></h1>
+        </div>
+
+        <div class="reveal-l hero-text-bottom">
+          <p class="hero-sub">Keine Tricks, keine Manipulation. Ein ruhiger, psychologisch fundierter Weg zur Versöhnung — vermittelt von einem Coach, der über 800 Menschen zu ihrer zweiten Chance begleitet hat.</p>
+          <div class="hero-actions">
+            <a href="#cta" class="btn-primary" data-scroll-cta>
+              Gratis-Training ansehen
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <div class="rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text"><b>4,8</b>/5 · 800+ begleitet</span>
+            </div>
+          </div>
+          <div class="hero-trust">
+            <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> 100% kostenlos</span>
+            <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Diskret &amp; vertraulich</span>
+            <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Keine Kreditkarte nötig</span>
+          </div>
+        </div>
+
+        <div class="reveal-r hero-media">
+          <div class="hero-media-glow"></div>
+          <div class="video-frame">
+            <div class="video-inner">
+              <img class="video-poster" src="assets/images/video-thumbnail.jpg" alt="Video-Vorschau" style="object-fit:cover;width:100%;height:100%;">
+              <button class="play-btn" data-scroll-video aria-label="Video abspielen">
+                <svg width="22" height="26" viewBox="0 0 13 15" fill="#fff"><path d="M0 0l13 7.5L0 15z"/></svg>
+              </button>
+              <span class="video-tag">18 Min · Gratis</span>
+            </div>
+            <div class="stat-float">
+              <div class="stat-float-num">92%</div>
+              <div class="stat-float-label">fühlten sich danach klarer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- TRUST MARQUEE -->
+    <section class="marquee-wrap">
+      <div class="marquee" id="marquee"></div>
+    </section>
+
+    <!-- EMPATHY -->
+    <section class="section narrow">
+      <p class="eyebrow reveal">Kommt dir das bekannt vor?</p>
+      <h2 class="section-title reveal" style="max-width:680px;margin-left:auto;margin-right:auto">Du willst keine Spielchen. Du willst verstehen, was passiert ist.</h2>
+      <div class="grid-3">
+        <div class="card reveal-s">
+          <div class="card-emoji">🌙</div>
+          <p class="card-lead">Du liest nachts alte Nachrichten und fragst dich, wo es schiefging.</p>
+        </div>
+        <div class="card reveal-s">
+          <div class="card-emoji">💬</div>
+          <p class="card-lead">Alle sagen „lass los", doch so einfach ist es für dich nicht.</p>
+        </div>
+        <div class="card reveal-s">
+          <div class="card-emoji">🧭</div>
+          <p class="card-lead">Du willst keine Manipulation — du willst Klarheit, was wirklich zu tun ist.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO PREVIEW -->
+    <section class="section wide video-preview-section" id="video-preview">
+      <p class="eyebrow reveal">Einblick ins Training</p>
+      <h2 class="section-title reveal">Sieh, wie eine echte Sitzung aussieht</h2>
+      <p class="section-sub reveal">Ein echtes Gespräch zwischen Coach und Klient — Schritt für Schritt durch den Prozess, der über 800 Menschen geholfen hat.</p>
+      <div class="video-preview-wrap reveal-s">
+        <video id="preview-video" class="preview-video" controls preload="metadata" poster="assets/images/video-thumbnail.jpg">
+          <source src="assets/videos/video.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section narrow" id="how">
+      <p class="eyebrow reveal">Drei einfache Schritte</p>
+      <h2 class="section-title reveal">So funktioniert's</h2>
+      <div class="grid-3">
+        <div class="card reveal-s">
+          <div class="step-num">1</div>
+          <h3 class="card-title">Gratis-Training ansehen</h3>
+          <p class="card-body">18 Minuten, die deinen Blick auf die Trennung und das, was danach kommt, verändern.</p>
+        </div>
+        <div class="card reveal-s">
+          <div class="step-num">2</div>
+          <h3 class="card-title">Wende das System an</h3>
+          <p class="card-body">Folge dem Schritt-für-Schritt-Ansatz in deinem Tempo, in deiner Situation.</p>
+        </div>
+        <div class="card reveal-s">
+          <div class="step-num">3</div>
+          <h3 class="card-title">Melde dich souverän</h3>
+          <p class="card-body">Geh aus Klarheit und innerer Ruhe auf sie zu — nicht aus Verzweiflung.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU'LL LEARN -->
+    <section class="section narrow">
+      <p class="eyebrow reveal">Im Gratis-Training</p>
+      <h2 class="section-title reveal">Das nimmst du mit</h2>
+      <div class="grid-3">
+        <div class="card reveal-s">
+          <div class="card-icon">🧠</div>
+          <h3 class="card-title">Der wahre Grund für das Aus</h3>
+          <p class="card-body">Erkenne über die Oberfläche hinaus die Dynamik, die die Beziehung wirklich zerbrochen hat — damit du sie heilen kannst.</p>
+        </div>
+        <div class="card reveal-s">
+          <div class="card-icon">🕊️</div>
+          <h3 class="card-title">Wie du ruhig wieder Kontakt aufbaust</h3>
+          <p class="card-body">Ein besonnener Weg, dich zu melden, der Vertrauen aufbaut, statt deine Ex weiter wegzustoßen.</p>
+        </div>
+        <div class="card reveal-s">
+          <div class="card-icon">⏳</div>
+          <h3 class="card-title">Erkennen, ob es sich lohnt</h3>
+          <p class="card-body">Ein ehrlicher Rahmen, um zu entscheiden, ob eine Versöhnung gesund ist — für euch beide — bevor du dein Herz investierst.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COACH -->
+    <section class="section wide">
+      <div class="coach reveal-s">
+        <img class="coach-photo" src="assets/images/portfolio_image.webp" alt="Dein Coach">
+        <div>
+          <p class="eyebrow">Dein Coach</p>
+          <h2 class="coach-title">Ehrliche Begleitung statt leerer Versprechen</h2>
+          <p class="coach-body">Seit über zehn Jahren helfe ich Menschen zu verstehen, was in ihrer Trennung wirklich passiert ist — und ob eine Versöhnung der richtige Weg ist. Dieses Gratis-Training gibt dir dieselbe Klarheit, für die meine Klienten bezahlen.</p>
+          <div class="coach-stats">
+            <div><div class="stat-num">800+</div><div class="stat-label">Menschen begleitet</div></div>
+            <div><div class="stat-num">4,8★</div><div class="stat-label">Durchschnittsbewertung</div></div>
+            <div><div class="stat-num">10 Jahre</div><div class="stat-label">Erfahrung</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section" id="stories">
+      <p class="eyebrow reveal">Echte zweite Chancen</p>
+      <h2 class="section-title reveal" style="margin-bottom:44px">Das sagen Teilnehmer</h2>
+      <div class="testimonials" id="testimonials"></div>
+    </section>
+
+    <!-- DIFFERENTIATOR -->
+    <section class="section diff-section">
+      <h2 class="section-title reveal">Ein anderer Ansatz</h2>
+      <div class="grid-2">
+        <div class="diff-good reveal-l">
+          <div class="diff-head accent-head">Zweite Chance</div>
+          <div class="diff-list">
+            <div class="diff-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Basiert auf echter Beziehungspsychologie</div>
+            <div class="diff-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Fokus auf ehrliches persönliches Wachstum</div>
+            <div class="diff-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Hilft dir zu entscheiden, ob Versöhnung gesund ist</div>
+            <div class="diff-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Völlig kostenlos — kein Druck, kein Verkauf</div>
+          </div>
+        </div>
+        <div class="diff-bad reveal-r">
+          <div class="diff-head muted-head">Typische „Ex-zurück"-Tricks</div>
+          <div class="diff-list">
+            <div class="diff-item muted"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg> Manipulationsskripte und Psychospielchen</div>
+            <div class="diff-item muted"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg> Vorgefertigte „Zaubersätze" für alle</div>
+            <div class="diff-item muted"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg> Zurückgewinnen um jeden Preis</div>
+            <div class="diff-item muted"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg> Endloser Hype und versteckte Verkäufe</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+      <h2 class="section-title reveal">Häufige Fragen</h2>
+      <div class="faq-list" id="faq-list"></div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section wide" id="cta">
+      <div class="cta reveal-s">
+        <div class="cta-glow"></div>
+        <h2 class="cta-title">Bereit zu verstehen, was wirklich passiert ist?</h2>
+        <p class="cta-sub">Sieh dir jetzt das komplette Gratis-Training an. Keine Zahlung, kein Druck — nur Klarheit.</p>
+        <a href="#cta" class="btn-light">
+          Gratis-Training ansehen
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="cta-note">⏱ 18 Min · 4,8★ von 800+ Teilnehmern</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="brand footer-brand">
+        <span class="brand-badge small">Z</span>
+        Zweite<span class="accent"> Chance</span>
+      </div>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <p class="footer-fine">© 2026 Zweite Chance. Diese Seite ist in keiner Weise Teil von Facebook™ oder wird von Facebook™ unterstützt. FACEBOOK™ ist eine Marke der Meta Platforms, Inc.</p>
+    </footer>
+
+  </div>
+
+  <!-- LIVE SOCIAL PROOF TOAST -->
+  <div class="toast" id="toast" hidden>
+    <span class="toast-icon">
+      <span class="toast-ping"></span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </span>
+    <div>
+      <div class="toast-name"><b id="toast-name"></b> <span class="toast-action">hat gerade das Training gestartet</span></div>
+      <div class="toast-ago" id="toast-ago"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
