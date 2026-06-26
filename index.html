@@ -267,6 +267,45 @@
     </div>
   </div>
 
+  <!-- REGISTRATION MODAL (fires when video ends) -->
+  <div class="modal-overlay" id="reg-modal" style="display:none">
+    <div class="modal-wrap">
+      <div class="modal-glow"></div>
+      <div class="modal-card">
+        <button class="modal-close" id="modal-close" aria-label="Schließen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div id="modal-inner">
+          <div class="modal-badge">
+            <span class="ping"><span class="ping-dot"></span><span class="ping-wave"></span></span>
+            Kostenloses Erstgespräch sichern
+          </div>
+          <h2 class="modal-title">Bereit für <span class="accent italic">deine zweite Chance?</span></h2>
+          <p class="modal-sub">Trag dich jetzt ein — wir melden uns persönlich zurück, diskret und ohne Druck.</p>
+          <form class="modal-form" id="modal-form" novalidate>
+            <div class="field">
+              <label for="mf-email">E-Mail-Adresse</label>
+              <input type="email" id="mf-email" name="email" placeholder="deine@email.de" required>
+            </div>
+            <div class="field">
+              <label for="mf-phone">Telefon <span class="modal-optional">(optional)</span></label>
+              <input type="tel" id="mf-phone" name="phone" placeholder="+49 ...">
+            </div>
+            <p class="form-status" id="mf-status" role="status"></p>
+            <button type="submit" class="btn-primary form-submit" style="border:none;cursor:pointer;margin-top:4px">
+              Kostenlosen Platz sichern
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+          <p class="modal-trust">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            100% vertraulich &nbsp;·&nbsp; Kein Spam &nbsp;·&nbsp; Jederzeit abmeldbar
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="assets/js/script.js"></script>
 </body>
 </html>

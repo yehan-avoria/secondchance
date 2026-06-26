@@ -60,6 +60,7 @@
     setupReveal();
     setupSmoothScroll();
     startToast();
+    setupVideoModal();
     if (!('ontouchstart' in window) && window.matchMedia('(pointer:fine)').matches) {
       setupHeartbeat();
     }
@@ -292,6 +293,98 @@
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
+  }
+
+  /* ---------- Video-midpoint registration modal ---------- */
+  function setupVideoModal() {
+    var video    = document.getElementById('preview-video');
+    var overlay  = document.getElementById('reg-modal');
+    var closeBtn = document.getElementById('modal-close');
+    if (!overlay) return;
+
+    var pausedAt  = 0;
+    var submitted = false;
+
+    function openModal() {
+      overlay.style.display = 'flex';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          overlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(function () {
+        overlay.style.display = 'none';
+        if (!video) return;
+        if (submitted) {
+          video.currentTime = pausedAt;
+          video.play();
+        } else {
+          video.currentTime = 0;
+          video.pause();
+          modalFired = false;
+        }
+      }, 380);
+    }
+
+    if (video) {
+      var modalFired = false;
+      video.addEventListener('timeupdate', function () {
+        if (!modalFired && !submitted && video.duration && video.currentTime >= video.duration * 0.5) {
+          modalFired = true;
+          pausedAt = video.currentTime;
+          video.pause();
+          openModal();
+        }
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
+
+    var form   = document.getElementById('modal-form');
+    var status = document.getElementById('mf-status');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailVal = document.getElementById('mf-email').value.trim();
+      if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        status.style.color = '#E0795A';
+        status.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+        return;
+      }
+      submitted = true;
+      var inner = document.getElementById('modal-inner');
+      if (!inner) return;
+      inner.innerHTML =
+        '<div class="modal-success">' +
+          '<div class="modal-success-icon">' +
+            '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>' +
+          '</div>' +
+          '<h3 class="modal-success-title">Wir haben deine Anfrage!</h3>' +
+          '<p class="modal-success-sub">Du erhältst bald eine persönliche Nachricht von uns.<br>Danke, dass du diesen ersten Schritt gemacht hast.</p>' +
+          '<button class="btn-primary" id="modal-done-btn" style="border:none;cursor:pointer;margin-top:28px">' +
+            'Video weiter ansehen &nbsp;▶' +
+          '</button>' +
+        '</div>';
+      var doneBtn = document.getElementById('modal-done-btn');
+      if (doneBtn) doneBtn.addEventListener('click', closeModal);
+    });
   }
 
   if (document.readyState === 'loading') {

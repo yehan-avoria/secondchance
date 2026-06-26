@@ -455,3 +455,95 @@ a.method-value:hover { color:var(--accent); }
   *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; }
   .reveal, .reveal-l, .reveal-r, .reveal-s { opacity:1; }
 }
+
+/* ---------- Registration Modal ---------- */
+.modal-overlay {
+  position:fixed; inset:0; z-index:200;
+  background:rgba(0,0,0,0.72);
+  backdrop-filter:blur(14px) saturate(0.6);
+  display:flex; align-items:center; justify-content:center;
+  padding:20px;
+  opacity:0; pointer-events:none;
+  transition:opacity .35s cubic-bezier(.4,0,.2,1);
+}
+.modal-overlay.open { opacity:1; pointer-events:all; }
+.modal-overlay.open .modal-wrap { animation:scModalIn .42s cubic-bezier(.34,1.22,.64,1) both; }
+.modal-wrap { position:relative; width:100%; max-width:480px; }
+.modal-glow {
+  position:absolute; inset:-20px; border-radius:32px;
+  background:radial-gradient(ellipse 80% 70% at 50% 20%, rgba(var(--accentRgb),0.42), transparent 70%);
+  filter:blur(18px); animation:scGlow 4s ease-in-out infinite; pointer-events:none;
+}
+.modal-card {
+  position:relative;
+  background:linear-gradient(160deg, rgba(var(--bgRgb),.97) 0%, rgba(var(--bgRgb),.94) 100%);
+  border:1px solid rgba(var(--line),0.18);
+  border-radius:26px; padding:44px 40px;
+  box-shadow:0 60px 120px -30px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(var(--accentRgb),0.12);
+  overflow:hidden;
+}
+.modal-card::before {
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(rgba(var(--line),0.038) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(var(--line),0.038) 1px, transparent 1px);
+  background-size:34px 34px;
+  mask-image:radial-gradient(ellipse 90% 55% at 50% 0%, #000 30%, transparent 100%);
+  opacity:0.65;
+}
+.modal-card::after {
+  content:""; position:absolute; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent 5%, rgba(var(--accentRgb),0.55) 50%, transparent 95%);
+  animation:scScanLine 4.5s ease-in-out infinite;
+  pointer-events:none;
+}
+.modal-card > * { position:relative; }
+.modal-close {
+  position:absolute; top:16px; right:16px; z-index:1;
+  background:rgba(var(--line),0.06); border:1px solid rgba(var(--line),0.10);
+  border-radius:10px; width:36px; height:36px; cursor:pointer; color:var(--muted);
+  display:flex; align-items:center; justify-content:center;
+  transition:color .2s, background .2s;
+}
+.modal-close:hover { color:var(--text); background:rgba(var(--line),0.13); }
+.modal-badge {
+  display:inline-flex; align-items:center; gap:9px;
+  background:rgba(var(--line),0.05); border:1px solid rgba(var(--line),0.12);
+  padding:7px 14px; border-radius:999px;
+  font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--text);
+  margin-bottom:18px;
+}
+.modal-title {
+  font-family:'Source Serif 4', serif; font-weight:600; font-size:30px;
+  letter-spacing:-0.02em; line-height:1.15; margin-bottom:10px;
+}
+.modal-sub { font-size:14.5px; color:var(--muted); line-height:1.6; margin-bottom:26px; }
+.modal-optional { font-weight:400; text-transform:none; letter-spacing:0; font-size:11.5px; }
+.modal-trust {
+  display:flex; align-items:center; justify-content:center; gap:7px;
+  font-size:12px; color:var(--muted); margin-top:16px; opacity:0.72; line-height:1.5;
+}
+.modal-success { text-align:center; padding:16px 0 8px; }
+.modal-success-icon {
+  width:62px; height:62px; border-radius:50%;
+  background:rgba(var(--accentRgb),0.14); border:1px solid rgba(var(--accentRgb),0.32);
+  display:flex; align-items:center; justify-content:center; margin:0 auto 22px;
+}
+.modal-success-title {
+  font-family:'Source Serif 4', serif; font-size:26px; font-weight:600;
+  letter-spacing:-0.01em; margin-bottom:10px;
+}
+.modal-success-sub { font-size:15px; color:var(--muted); line-height:1.65; margin-bottom:0; }
+@keyframes scModalIn {
+  from { opacity:0; transform:scale(.93) translateY(20px); }
+  to   { opacity:1; transform:none; }
+}
+@keyframes scScanLine {
+  0%   { top:0;    opacity:0; }
+  6%   { opacity:1; }
+  88%  { opacity:0.45; }
+  100% { top:100%; opacity:0; }
+}
+@media (max-width:520px) {
+  .modal-card   { padding:32px 22px; border-radius:20px; }
+  .modal-title  { font-size:24px; }
+}
