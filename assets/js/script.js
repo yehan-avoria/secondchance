@@ -8,8 +8,8 @@
 
   /* ---------- Data ---------- */
   var marquee = [
-    '800+ Menschen begleitet', '4,8/5 Durchschnittsbewertung', '100% vertraulich',
-    'Psychologisch fundierte Methode', '10+ Jahre Erfahrung', 'Niemals Tricks',
+    '8000+ Menschen begleitet', '4,9/5 Durchschnittsbewertung', '100% vertraulich',
+    'Psychologisch fundierte Methode', '10+ Jahre Erfahrung',
     'Kostenloses Video-Training'
   ];
 
