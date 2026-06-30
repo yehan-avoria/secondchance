@@ -55,6 +55,11 @@
 
   function init() {
     buildMarquee();
+    var marqueeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(marqueeTimer);
+      marqueeTimer = setTimeout(buildMarquee, 200);
+    });
     buildTestimonials();
     buildFaq();
     setupReveal();
@@ -70,11 +75,25 @@
   function buildMarquee() {
     var el = document.getElementById('marquee');
     if (!el) return;
+    var wrap = el.parentElement;
     var star = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 13.8 2 9.4h7.6z"/></svg>';
-    var items = marquee.concat(marquee).map(function (label) {
-      return '<span class="marquee-item">' + star + ' ' + esc(label) + '</span>';
-    });
-    el.innerHTML = items.join('');
+    function oneSet() {
+      return marquee.map(function (label) {
+        return '<span class="marquee-item">' + star + ' ' + esc(label) + '</span>';
+      }).join('');
+    }
+    // Render one set, measure it, then repeat enough times that a single
+    // half of the track is always wider than the viewport — so the -50%
+    // loop never exposes a gap.
+    el.innerHTML = oneSet();
+    var setWidth = el.scrollWidth;
+    var need = wrap ? wrap.clientWidth : 0;
+    var reps = (setWidth > 0) ? Math.max(1, Math.ceil(need / setWidth) + 1) : 1;
+    var group = '';
+    for (var i = 0; i < reps; i++) group += oneSet();
+    el.innerHTML = group + group; // two identical halves → seamless -50%
+    // Keep constant pixel-speed: one set scrolled per 32s, regardless of reps.
+    el.style.animationDuration = (32 * reps) + 's';
   }
 
   /* ---------- Testimonials (duplicated for seamless loop) ---------- */
