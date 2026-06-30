@@ -14,15 +14,15 @@
   ];
 
   var testimonials = [
-    { quote: 'Endlich habe ich meinen Anteil daran verstanden. Drei Wochen später hatten wir das Gespräch, das ich monatelang vermieden hatte.', name: 'Stefan W.', meta: 'Verifizierter Teilnehmer', initial: 'S', color: 'var(--accent)' },
-    { quote: 'Keine Spielchen. Es hat mich ernst genommen und mir geholfen, ruhig genug zu werden, um klar zu denken.', name: 'Marco L.', meta: 'Verifizierter Teilnehmer', initial: 'M', color: '#2E7D5B' },
-    { quote: 'Ehrlich gesagt half mir das System zu entscheiden, mich NICHT zu melden — und genau diese Klarheit brauchte ich.', name: 'Daniel K.', meta: 'Verifizierter Teilnehmer', initial: 'D', color: '#3A6EA5' },
-    { quote: 'Ruhig, praktisch und respektvoll. Ich geriet nicht mehr in Panik, sondern überlegte, was wirklich gesund ist.', name: 'Julian R.', meta: 'Verifizierter Teilnehmer', initial: 'J', color: '#A8884E' }
+    { quote: 'Ich hätte nie gedacht, dass sich ihre Gefühle so schnell verändern können. Wenige Wochen später kam sie von selbst wieder auf mich zu.', name: 'Stefan W.', meta: 'Verifizierter Teilnehmer', initial: 'S', color: 'var(--accent)' },
+    { quote: 'Das Beste war nicht, dass sie sich wieder meldete. Das Beste war, dass ich mich selbst endlich wieder wie ich gefühlt habe.', name: 'Marco L.', meta: 'Verifizierter Teilnehmer', initial: 'M', color: '#2E7D5B' },
+    { quote: 'Zum ersten Mal hatte ich einen klaren Plan. Statt sie weiter wegzustoßen, wusste ich endlich genau, was ich tun musste.', name: 'Daniel K.', meta: 'Verifizierter Teilnehmer', initial: 'D', color: '#3A6EA5' },
+    { quote: 'Der Kontaktabbruch war das Schwierigste. Heute weiß ich: Genau das war der Wendepunkt, der alles verändert hat.', name: 'Julian R.', meta: 'Verifizierter Teilnehmer', initial: 'J', color: '#A8884E' }
   ];
 
   var faqs = [
-    { q: 'Ist das Manipulation oder ein billiger Trick?', a: 'Nein. Das Training basiert auf Beziehungspsychologie und Selbstreflexion. Es gibt keine Skripte, um jemanden zu manipulieren — es geht darum, dich selbst zu verstehen und ehrlich zu kommunizieren.' },
-    { q: 'Wie lange dauert es und was kostet es?', a: 'Das Video-Training dauert etwa 18 Minuten und ist völlig kostenlos. Es gibt nichts zu bezahlen und du brauchst keine Kreditkarte, um es anzusehen.' },
+    { q: 'Ist das Manipulation oder ein billiger Trick?', a: 'Nein. Das Training basiert auf Beziehungspsychologie und Selbstreflexion. Es gibt keine Skripte, um jemanden zu manipulieren.' },
+    { q: 'Wie lange dauert es und was kostet es?', a: 'Das Video-Training dauert etwa 15 Minuten und ist völlig kostenlos.' },
     { q: 'Was, wenn meine Ex schon jemand Neues hat?', a: 'Das Training geht direkt darauf ein. Es hilft dir, die Situation realistisch einzuschätzen und den gesündesten Weg für dich zu wählen.' },
     { q: 'Werden meine Daten vertraulich behandelt?', a: 'Ja. Alles ist vertraulich und diskret. Wir geben deine Daten niemals weiter, und du kannst das Training privat ansehen.' }
   ];
